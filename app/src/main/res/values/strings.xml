@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MediaWikiApplication</string>
+    <string name="random_articles_tab_title">Random Articles</string>
+    <string name="features_images_tab_title">Featured Images</string>
+    <string name="categories_tab_title">Categories</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="article_cover_description">article_cover</string>
+    <string name="title_place_holder">Title</string>
+    <string name="subtext_placeholder">subtext</string>
+    <string name="image_description_title">Image_description</string>
+    <string name="image_uploader_name_title">uploaded by: jay</string>
+</resources>
