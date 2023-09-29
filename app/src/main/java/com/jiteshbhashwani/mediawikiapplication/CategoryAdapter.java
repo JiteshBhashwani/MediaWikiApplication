@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -29,6 +31,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.category.setText(categoriesArrayList.get(position));
+        holder.cardView.setOnClickListener(view -> {
+            Toast.makeText(context, categoriesArrayList.get(position) + " got clicked", Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
@@ -38,8 +43,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public static class CategoryViewHolder extends RecyclerView.ViewHolder{
         TextView category;
+        CardView cardView;
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardView = itemView.findViewById(R.id.category_card);
             category = itemView.findViewById(R.id.category_name);
         }
     }

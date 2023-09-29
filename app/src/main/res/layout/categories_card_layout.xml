@@ -2,28 +2,32 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/category_card"
+    android:clickable="true"
     app:cardElevation="5dp"
     app:cardCornerRadius="12dp"
     app:cardUseCompatPadding="true"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:padding="15dp">
 
         <TextView
             android:id="@+id/category_name"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textSize="16sp"
+            android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
 
-        <ImageView
+        <ImageView android:layout_marginHorizontal="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
@@ -32,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
             app:srcCompat="@drawable/baseline_expand_circle_down_24"
-            android:contentDescription="@string/click" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:contentDescription="@string/app_name" />
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
