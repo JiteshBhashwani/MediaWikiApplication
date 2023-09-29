@@ -17,7 +17,7 @@ public class FeaturedImagesFragment extends Fragment {
     ArrayList<FeaturedImageModel> featuredImageModels;
     View view;
     RecyclerView recyclerView;
-    String testingImage = "https://source.android.com/static/docs/setup/images/Android_symbol_green_RGB.png";
+    String testingImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Android_logo_2.svg/768px-Android_logo_2.svg.png";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
