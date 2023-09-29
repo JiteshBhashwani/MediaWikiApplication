@@ -2,7 +2,6 @@ package com.jiteshbhashwani.mediawikiapplication;
 
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,7 @@ public class RandomArticlesFragment extends Fragment {
     ArrayList<ArticleModel> articleModelArrayList;
     View view;
     RecyclerView recyclerView;
-    String testingImage = "https://media.licdn.com/dms/image/D4D03AQFpCmhTG3R-mA/profile-displayphoto-shrink_800_800/0/1666059101130?e=1701302400&v=beta&t=NdvQ8R_B9sHXDc4Q1W2Oh37EKQ8oZhETKaCfJE6ecuk";
+    String testingImage = "https://source.android.com/static/docs/setup/images/Android_symbol_green_RGB.png";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
