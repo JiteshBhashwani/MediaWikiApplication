@@ -8,46 +8,53 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
-public class FeaturedImageAdapter extends BaseAdapter {
-
+public class FeaturedImageAdapter extends RecyclerView.Adapter<FeaturedImageAdapter.FeaturedImageViewHolder> {
     ArrayList<FeaturedImageModel> featuredImageModels;
-    View view;
     Context context;
-    LayoutInflater layoutInflater;
-
-    public FeaturedImageAdapter(ArrayList<FeaturedImageModel> featuredImageModels, View view, Context context) {
+    public FeaturedImageAdapter(ArrayList<FeaturedImageModel> featuredImageModels) {
         this.featuredImageModels = featuredImageModels;
-        this.view = view;
-        this.context = context;
-        layoutInflater = LayoutInflater.from(context);
+    }
+
+    @NonNull
+    @Override
+    public FeaturedImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
+        return new FeaturedImageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.image_card_layout,parent,false));
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull FeaturedImageViewHolder holder, int position) {
+        Glide.with(context)
+                .load(featuredImageModels.get(position).imageUrl)
+                .placeholder(R.drawable.place_holder_image)
+                .into(holder.imageView);
+        holder.title.setText(featuredImageModels.get(position).getDescription());
+        holder.owner_name.setText(featuredImageModels.get(position).getOwnerName());
+    }
+
+    @Override
+    public int getItemCount() {
         return featuredImageModels.size();
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
+    public static class FeaturedImageViewHolder extends RecyclerView.ViewHolder{
+        ImageView imageView;
+        TextView title;
+        TextView owner_name;
+
+        public FeaturedImageViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.main_image);
+            title = itemView.findViewById(R.id.image_description);
+            owner_name = itemView.findViewById(R.id.image_owner_name);
+        }
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = layoutInflater.inflate(R.layout.image_card_layout,null);
-        ImageView imageView = view.findViewById(R.id.main_image);
-        TextView imageDescription = view.findViewById(R.id.image_description);
-        TextView imageOwnerName = view.findViewById(R.id.image_owner_name);
-        imageView.setImageResource(featuredImageModels.get(i).getImageId());
-        imageDescription.setText(featuredImageModels.get(i).getDescription());
-        imageOwnerName.setText(featuredImageModels.get(i).getOwnerName());
-        return null;
-    }
 }

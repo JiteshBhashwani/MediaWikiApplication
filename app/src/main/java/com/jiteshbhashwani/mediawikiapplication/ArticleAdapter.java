@@ -8,46 +8,55 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
-public class ArticleAdapter extends BaseAdapter {
+public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
     ArrayList<ArticleModel> articleViewModels;
-    View view;
     Context context;
-    LayoutInflater layoutInflater;
-    public ArticleAdapter(ArrayList<ArticleModel> articleViewModels, View view, Context context) {
+
+    public ArticleAdapter(ArrayList<ArticleModel> articleViewModels) {
         this.articleViewModels = articleViewModels;
-        this.view = view;
-        this.context = context;
-        layoutInflater = LayoutInflater.from(context);
+    }
+
+    @NonNull
+    @Override
+    public ArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
+        return new ArticleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.article_custom_card_layout,parent,false));
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
+        Glide.with(context)
+                .load(articleViewModels.get(position).getCover_url())
+                .placeholder(R.drawable.place_holder_image)
+                .into(holder.article_cover);
+        holder.article_title.setText(articleViewModels.get(position).getTitle());
+        holder.article_subtext.setText(articleViewModels.get(position).getSubText());
+        holder.article_text.setText(articleViewModels.get(position).getText());
+    }
+
+    @Override
+    public int getItemCount() {
         return articleViewModels.size();
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = layoutInflater.inflate(R.layout.article_custom_card_layout,null);
-        ImageView cover = view.findViewById(R.id.article_cover);
-        TextView title = view.findViewById(R.id.article_title);
-        TextView sub = view.findViewById(R.id.article_subtext);
-        TextView content = view.findViewById(R.id.article_text);
-        cover.setImageResource(articleViewModels.get(i).getCover_id());
-        title.setText(articleViewModels.get(i).getTitle());
-        sub.setText(articleViewModels.get(i).getSubText());
-        content.setText(articleViewModels.get(i).getText());
-        return view;
+    public static class ArticleViewHolder extends RecyclerView.ViewHolder{
+        ImageView article_cover;
+        TextView article_title;
+        TextView article_subtext;
+        TextView article_text;
+        public ArticleViewHolder(@NonNull View itemView) {
+            super(itemView);
+            article_cover = itemView.findViewById(R.id.article_cover);
+            article_title = itemView.findViewById(R.id.article_title);
+            article_text = itemView.findViewById(R.id.article_text);
+            article_subtext = itemView.findViewById(R.id.article_subtext);
+        }
     }
 }

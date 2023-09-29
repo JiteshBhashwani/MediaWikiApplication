@@ -1,22 +1,24 @@
 package com.jiteshbhashwani.mediawikiapplication;
 
+import android.net.Uri;
+
 public class FeaturedImageModel {
-    int imageId;
+    String imageUrl;
     String description;
     String ownerName;
 
-    public FeaturedImageModel(int imageId, String description, String ownerName) {
-        this.imageId = imageId;
+    public FeaturedImageModel(String imageUrl, String description, String ownerName) {
+        this.imageUrl = imageUrl;
         this.description = description;
         this.ownerName = ownerName;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDescription() {

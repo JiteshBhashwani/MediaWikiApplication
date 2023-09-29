@@ -1,24 +1,26 @@
 package com.jiteshbhashwani.mediawikiapplication;
 
+import android.net.Uri;
+
 public class ArticleModel {
-    int cover_id;
+    String cover_url;
     String title;
     String subText;
     String text;
 
-    public ArticleModel(int cover_id, String title, String subText, String text) {
-        this.cover_id = cover_id;
+    public ArticleModel(String cover_url, String title, String subText, String text) {
+        this.cover_url = cover_url;
         this.title = title;
         this.subText = subText;
         this.text = text;
     }
 
-    public int getCover_id() {
-        return cover_id;
+    public String getCover_url() {
+        return cover_url;
     }
 
-    public void setCover_id(int cover_id) {
-        this.cover_id = cover_id;
+    public void setCover_url(String cover_url) {
+        this.cover_url = cover_url;
     }
 
     public String getTitle() {

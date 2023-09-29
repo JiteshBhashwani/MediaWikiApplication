@@ -12,11 +12,4 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ProgressBar
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:id="@+id/imageLoadingAnim"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:indeterminate="true" />
-
 </LinearLayout>
